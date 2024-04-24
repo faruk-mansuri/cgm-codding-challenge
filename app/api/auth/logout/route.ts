@@ -1,7 +1,7 @@
 import { StatusCodes } from 'http-status-codes';
 import { NextResponse } from 'next/server';
 
-export const GET = async () => {
+export const GET = () => {
   try {
     const response = NextResponse.json(
       { msg: 'user logged out!' },
@@ -10,7 +10,7 @@ export const GET = async () => {
 
     response.cookies.set('token', 'logout', {
       httpOnly: true,
-      expires: new Date(Date.now()),
+      expires: new Date(0),
     });
 
     return response;

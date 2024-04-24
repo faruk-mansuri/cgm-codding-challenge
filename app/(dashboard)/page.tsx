@@ -1,6 +1,6 @@
 import Component from '@/components/Component';
 import { currentProfile } from '@/lib/currentProfile';
-import { IAllUserResponse, getAllUsers } from '@/lib/getAllUsers';
+import { getAllUsers } from '@/lib/getAllUsers';
 import { getDataFromToken } from '@/lib/getDataFromToken';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';

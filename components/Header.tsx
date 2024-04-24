@@ -1,8 +1,10 @@
+'use client';
 import React from 'react';
 import { ModeToggle } from './ModeToggle';
 import UserAvatar from './UserAvatar';
 import { useAppSelector } from '@/lib/hooks';
 import LogoutBtn from './LogoutBtn';
+
 const Header = () => {
   const user = useAppSelector((store) => store.userState);
 

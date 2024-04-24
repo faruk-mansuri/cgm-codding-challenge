@@ -3,7 +3,6 @@ import { IAllUserResponse } from '@/lib/getAllUsers';
 import { useAppDispatch } from '@/lib/hooks';
 import { IUserResponse } from '@/model/userModel';
 import { setProfile } from '@/features/user/slice';
-import Header from '@/components/Header';
 import { useEffect } from 'react';
 import SingleCardUser from './SingleCardUser';
 import { useRouter } from 'next/navigation';
@@ -52,7 +51,6 @@ const Component = ({ profile, allUsers }: ComponentType) => {
 
   return (
     <div>
-      <Header />
       <div className='align-element px-4 py-8 grid md:grid-cols-2 lg:grid-cols-3 gap-2 gap-x-4'>
         {users?.map((user) => {
           return <SingleCardUser key={user._id} user={user} />;

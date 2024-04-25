@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# CGMeetUp Codding Challenge
 
-First, run the development server:
+A brief description of what this project does and who it's for
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+## Features
+
+- Registration and login
+- Light/dark mode toggle
+- Upload avatar
+- Follow users
+- Responsive layout
+
+
+## API Reference
+
+#### Login user
+
+```http
+  POST /api/auth/login
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `email` | `string` | **Required**. Email of user |
+| `password` | `string` | **Required**. Paswword of user |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### Login user
+```http
+  POST /api/auth/register
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `firstName` | `string` | **Required**. firstName of user |
+| `lastName` | `string` | **Required**. lastName of user |
+| `userName` | `string` | **Required**. userName of user |
+| `phoneNumber` | `string` | **Required**. phoneNumber of user |
+| `email` | `string` | **Required**. email of user |
+| `password` | `string` | **Required**. Paswword of user |
 
-## Learn More
+#### Logout
 
-To learn more about Next.js, take a look at the following resources:
+```http
+  GET /api/auth/logout
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Follow user
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```http
+  GET /api/user/follow/${userId}
+```
 
-## Deploy on Vercel
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `userId`      | `string` | **Required**. userId to add in following array of currentUser |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### Update user profile
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```http
+  GET /api/user/update-user
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `imgUrl`      | `string` | **Required**. imgUrl to upate avatar |
+
+#### getAllUsers(userId, page)
+
+Takes userId and page and users of page excluding current logged in user.
+
+#### currentProfile(userId)
+
+Takes userId and return profile of current logged in user.
+
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`MONGO_URL`=mongodb+srv://faruk13:faruk13@cluster0.rhc7b1v.mongodb.net/cgm-codding-challenge?retryWrites=true&w=majority&appName=Cluster0
+`JWT_SECRET`=secret123
+`JWT_EXPIRES_IN`=30d
+`CLOUD_NAME`=dtapameu3
+`CLOUD_API_KEY`=261737314885671
+`CLOUD_API_SECRET`=DtwqYGxsmPFxU2NZjC0S8tV5zmM
+
+## Installation
+
+Install my-project with npm
+
+```bash
+  npm install
+  npm run dev
+```
+    
+## Demo
+
+https://cgm-codding-challenge.vercel.app/
+
+
+## 🚀 About Me
+I'm a friendly and dedicated Typescript, Next JS, React, React Native and full-stack developer with over 3 years of immersive learning experience. My journey has equipped me with advanced JavaScript skills and a deep understanding of front-end and back-end technologies by creating 30+ projects. I take pride in creating user-centric applications that seamlessly blend innovation and functionality.
+
+portfolio https://faruk-portfolio-v2.netlify.app/
